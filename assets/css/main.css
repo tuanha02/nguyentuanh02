@@ -4,8 +4,11 @@ header{
     background-image:linear-gradient(0,#fe6433,#f53e2d);
     top:0;
     width: 100%;
-    min-width: 1520px;
+    z-index: 2;
+    position: fixed;
+    max-width: 1550px;
 }
+/* fix header lỗi nặng chỗ này do sửa linh tinh chèn vào kb ra sao lun tạm fix ntn để fix chat cùng luôn! */
 .fix-header{
     width:1200px;
     max-width: 100%;
@@ -87,12 +90,12 @@ animation: in ease-in 0.2s;
 .header__navbar-user-menu::before{
     content: "";
     position: absolute;
-    border-width: 18px 20px;
+    border-width: 19px 21px;
     border-style:  solid;
     /* border color cái mũi tên của thẻ avt  transperent là màu trong suốt */
     border-color: transparent transparent var(--white-color) transparent;
-    right: 9px;
-    top:-33px;
+    right: 6px;
+    top:-32px;
 }
 .header__navbar-user-item a:hover{
     background-color: #faf5f5;
@@ -244,7 +247,7 @@ z-index: 1;
     width: 100px;
     right: 0;
     top:-25px;
-    height: 27px;
+    height: 27px ;
 }
 @keyframes headernotify{
     from{
@@ -281,6 +284,7 @@ span{
 }
 .header__notify-item{
    display: flex;
+   height: 50px;
 }
 .header__notify-item:hover{
     /* hover để di chuyển chuột vào thì hiện ra màu đấy */
@@ -308,27 +312,29 @@ span{
  font-size: 1.4rem;
     color: var(--black-color);
   font-weight: 500;
+line-height: 2rem;
 }
 .header__notify-mota{
  display: block;
  font-size: 1.2rem;
  /* chỉnh line height chiều cao dòng thứ hai với dòng thứ nhất */
- line-height: 0.6rem;
  margin-top: 1px;
+ line-height: 1em;
  color: #756F6E;
 }
 .header__notify-footer{
     /* chêm thêm độ dài rộng của thẻ foooter ( xem tất cả ) */
     margin: 10px 16px 4px 20px;
     text-align: center;
+    height: 20px;
+    width: 100%;
 }
 .header__notify-footer-btn{
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 550;
-    font-size: 1.4rem;
     padding: 8px 0;
-    width: 100%;
+
+
 }
 
 .auth-form{
@@ -462,6 +468,7 @@ margin-top: 26px;
   height: var(--header-with-search-height) ;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .header__logo{
     width: 250px;
@@ -485,7 +492,23 @@ margin-top: 26px;
     margin-right: -29px;
     padding-right: 1px;
 }
+.featured__search{
+    display: flex;
+    position: absolute;
+    top: 101px;
+    left: 266px;
+    align-items: center;
+    margin-top: 4px;
+    max-width: 929px;
+}
 
+.featured__search-list a{
+text-decoration: none;
+font-size: 1.2rem;
+color :#FFE0D7;
+font-family: sans-serif;
+margin: 0 4px;
+}
 .header__cart{
     width: 50px;
     text-align: center;
@@ -493,14 +516,20 @@ margin-top: 26px;
 }
 .header__cart-heading{
     text-align: left;
-    margin: 8px 0 8px 12px;
-    font-size: 1.6rem;
-    font-family: serif;
-    color: #999;
+    margin: 10px 0px 8px 29px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: red;
+    font-weight: 100;
 }
 .header__cart-list-item{
     padding-left: 0;
     list-style: none;
+    /* 50=vh > 50% chiều cao của trình duyệt */
+    height:45vh ;
+    /* overflow không là nó hiện cả thanh kéo ngang
+    ở đây là bỏ trục x chỉ cần trục y */
+    overflow-y: scroll; 
 }
 .header__cart-item{
     display: flex;
@@ -523,15 +552,26 @@ margin-top: 26px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 26px;
+    /* height: 26px; */
     margin-top: 12px;
 }
 .header__cart-item-name{
-    font-size: 1.5rem;
-    font-style: italic;
-    font-family: ui-serif;
+    font-size: 1.4rem;
     color: var(--text-color);
     margin: 0;
+    font-family:auto;
+    max-height: 4rem;
+    line-height: 2rem;
+    overflow: hidden;
+    flex: 1;
+    font-style: italic;
+    text-align: left;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
 }
 .iconvnđ{
     color: var(--primary-color);
@@ -575,7 +615,8 @@ margin-top: 26px;
 .header__cart-wrap{
     position: relative;
     display: inline-block;
-    margin-right: -16px;
+    margin-right: -17px;
+    top: -3px;
 }
 .header__cart-wrap:hover .header__cart-list{
  display: block;
@@ -722,12 +763,10 @@ display: block;
     right:20px;
     top:87%;
     width: 126px;
-    display: inline-block;
     list-style: none;
     /* box shadow bóng của thằng trong shop ngoài shop  */
     box-shadow: 0 0 3px #ccc;
     padding-left: 0;
-    border-radius: 3px;
     display: none;
     animation: in ease-in 0.3s;
     margin-bottom: 0;
@@ -744,10 +783,18 @@ display: block;
 }
 .header__search-option-item{
   background-color: var(--white-color);
-  border-radius: 3px;
-  padding: 8px 8px;
+  padding: 1px 8px;
   padding-right: 11px;
 }
+.header__search-option-item:first-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.header__search-option-item:last-child{
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
 .header__search-option-item:hover{
     background-color: #f6dcdc;
 }
@@ -821,9 +868,6 @@ display: none;
     background-color:var(--white-color);
     border-radius: 2px;
 }
-.category-item--active .category-item-link{
-  color: var(--primary-color);
-}
 .category-list{ 
     padding-left:18px;
     margin-left: 12px;
@@ -853,8 +897,9 @@ relative ở link là thẻ chính để before có absolute phụ thuộc vào 
     color: var(--primary-color);
     right: -3px;
 }
-/* mũi tên bên trái sản phẩm  */
-.category-item--active .category-item-link::before{
+/* muốn thêm tam giác màu cam thì phải hover tiếp vào li-> tạo một class 
+lớp giả cho class chứa chữ bên trong như bên dưới là được  */
+.category-item:hover .category-item-link::before{
     content: "";
     border-color: transparent transparent transparent var(--primary-color);
     border-style: solid;
@@ -1010,25 +1055,37 @@ box-shadow: 0 1px 2px rgba(0,0 , 0, 0.1);
 transition:  transform ease-out 0.1s;
 will-change: transform;
 }
+/* hiệu ứng của di chuyển lên */
+.home-product-item:hover{
+    box-shadow: 0 1px 20px rgba(0,0 , 0, 0.05);
+    transform: translateY(-5px);
+    outline: solid 1px var(--primary-color);
+}
 .home-product-item:hover .home-search-product{
     display: inline-block;
 }
 /* tìm kiếm sản phẩm */
 .home-search-product{
-display: inline-flex;
+display:inline-flex;
 display: none;
 position: absolute;
-line-height: 1rem;
+line-height: 32px;
 font-size: 1.4rem;
 background-color: var(--primary-color);
 border-radius: 0px 0px 2px 2px;
 border-style: solid;
 border-width: 1px;
-width: 100%;
+width: 100%;    
 color: var(--primary-color);
 border-bottom-left-radius: 0.125rem;
 border-bottom-right-radius: 0.125rem;
 text-align: center;
+align-items: center;
+}
+.home-search-product a {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--white-color);
 }
 /* cách đè tìm kiếm sản phẩm  */
 .grid__column-2-4:hover .home-product-item{
@@ -1040,12 +1097,6 @@ text-align: center;
     font-weight: 400;
     display: inline-block;
     margin: auto;
-}
-/* hiệu ứng của di chuyển lên */
-.home-product-item:hover{
-    box-shadow: 0 1px 20px rgba(0,0 , 0, 0.05);
-    transform: translateY(-5px);
-    outline: solid 1px var(--primary-color);
 }
 .home-product-item__img{
     /* padding top ở đây có tác dụng biến hình ảnh thành hình vuông */
@@ -1201,6 +1252,7 @@ font-weight: 650;
 
 .image-silder{
     padding-bottom: 30px;
+    margin-top: 110px;
 }
 .image{
     margin-top: 20px;
@@ -1279,4 +1331,47 @@ font-weight: 650;
 /* khi click vào nút thì lấy class chính và class phụ nếu có con nữa ntn thì cho thêm vào là click vào để hiện màu */
 .slick-dots .slick-active button{
     background-color: #2cccff;
+}
+.title-icon{
+    object-fit: cover;
+    border-radius: 100%;
+    position: absolute;
+}       
+/* chat  */
+.Chat__container{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 12px;
+    width: 100px;
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    margin-left: auto;
+    right: 10px;
+    bottom: 0;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    line-height: 1.6rem;  
+}
+.Chat__container span{
+   font-size: 1.8rem;
+   color: var(--white-color);
+   font-family: system-ui;
+}
+.Chat__container i {
+    font-size: 1.8rem;
+    color: var(--white-color);
+}
+.chat__notice{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border-width: 1px;
+    position: absolute;
+    font-size: 1.4rem !important;
+    border-style: solid;
+    line-height: 1.3rem;
+    padding: 2px 5px;
+    right: -8px;
+    top: -12px;
 }
