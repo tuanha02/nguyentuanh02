@@ -160,3 +160,87 @@ animation: growth linearf 0.5s;
     background-color: #c3c3c3;
 }
 
+/* chat  */
+.Chat__container{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 12px;
+    width: 100px;
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    margin-left: auto;
+    right: 10px;
+    bottom: 0;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    line-height: 1.6rem;  
+}
+.Chat__container span{
+   font-size: 1.8rem;
+   color: var(--white-color);
+   font-family: system-ui;
+}
+.Chat__container i {
+    font-size: 1.8rem;
+    color: var(--white-color);
+}
+.chat__notice{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border-width: 1px;
+    position: absolute;
+    font-size: 1.4rem !important;
+    border-style: solid;
+    line-height: 1.3rem;
+    padding: 2px 5px;
+    right: -8px;
+    top: -12px;
+}
+
+/* pagination= ( chuyển đổi trang )  < 12345 ... 15 > */
+
+.pagination{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+}
+.pagination-item{
+    margin: 0 15px;
+}
+/* khi active vào thì back ground hiện màu  */
+.pagination-item__active .pagination-item_link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+/* thẻ a ở đây cần thêm thuộc tính display: block vào mới xét dc chiều cao  */
+.pagination-item_link{
+    display: block;
+    min-width: 40px;
+    font-size: 1.6rem;
+    height: 30px;
+    text-decoration: none;
+    border-radius: 2px;
+    color:#939393;
+    text-align: center;
+    line-height: 30px;
+}
+
+.footer{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.footer__heading{
+    margin-top: 26px;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-family: none;
+}
+.district a{
+    text-decoration: none;
+    padding: 4px 10px;
+    color: var(--text-color);
+    font-size: 1.4rem;
+}

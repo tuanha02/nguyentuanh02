@@ -529,7 +529,10 @@ margin: 0 4px;
     height:45vh ;
     /* overflow không là nó hiện cả thanh kéo ngang
     ở đây là bỏ trục x chỉ cần trục y */
-    overflow-y: scroll; 
+    overflow-y: hidden;
+}
+.header__cart-list-item:hover{
+    overflow-y: scroll;
 }
 .header__cart-item{
     display: flex;
@@ -895,7 +898,7 @@ relative ở link là thẻ chính để before có absolute phụ thuộc vào 
 }
 .category-item-link:hover{
     color: var(--primary-color);
-    right: -3px;
+    right: -4px;
 }
 /* muốn thêm tam giác màu cam thì phải hover tiếp vào li-> tạo một class 
 lớp giả cho class chứa chữ bên trong như bên dưới là được  */
@@ -1100,10 +1103,10 @@ align-items: center;
 }
 .home-product-item__img{
     /* padding top ở đây có tác dụng biến hình ảnh thành hình vuông */
+    background-repeat: no-repeat;
     padding-top: 100%;
     background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-position: top center;
 }
 .home-product-item__name{
     font-size: 1.4rem;
@@ -1273,6 +1276,9 @@ font-weight: 650;
 .slick-initialized .slick-slide{
     margin: 10px;
 }
+.slick-slider{
+    max-width: 1526px;
+}
 /* nút mũi tên trái phải xét chung */
 .slick-arrow{
     position: absolute;
@@ -1337,41 +1343,37 @@ font-weight: 650;
     border-radius: 100%;
     position: absolute;
 }       
-/* chat  */
-.Chat__container{
+.home-product__pagination{
+    margin:  28px 0px;
+   }
+
+.grid__row-footer{
+    background-color:rgba(251, 251, 251, 1);
+    border-bottom: 2px solid rgb(250, 237, 237);
+    border-top: 3px solid var(--primary-color) ;
+}
+.footer-item{
+    list-style: none;
+    font-family:'Times New Roman', Times, serif;
+    padding: 7px 0;
+}
+.footer-item i{
+    font-size: 1.4rem;
+    margin-right: 5px;
+}
+.footer-item__link{
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+.footer-item__link:hover{
+    color: var(--primary-color);
+}
+.footer-list{
+    padding: 0;
+}
+.footer__downloadapp{
     display: flex;
-    cursor: pointer;
-    align-items: center;
-    padding: 12px;
-    width: 100px;
-    height: 50px;
-    position: fixed;
-    z-index: 2;
-    margin-left: auto;
-    right: 10px;
-    bottom: 0;
-    background-color: var(--primary-color);
-    border-radius: 4px;
-    line-height: 1.6rem;  
 }
-.Chat__container span{
-   font-size: 1.8rem;
-   color: var(--white-color);
-   font-family: system-ui;
-}
-.Chat__container i {
-    font-size: 1.8rem;
-    color: var(--white-color);
-}
-.chat__notice{
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    border-width: 1px;
-    position: absolute;
-    font-size: 1.4rem !important;
-    border-style: solid;
-    line-height: 1.3rem;
-    padding: 2px 5px;
-    right: -8px;
-    top: -12px;
+.download{
+    height: 25px;
 }
